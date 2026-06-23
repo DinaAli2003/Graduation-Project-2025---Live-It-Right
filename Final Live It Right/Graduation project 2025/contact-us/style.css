@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(../Doctors-page/img/start.png);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b7c9c800;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.25rem;
+
+}
+.logo-container {
+  display: flex;
+  gap: 10px; 
+  width: 175px;
+  height: 175px;
+}
+
+
+.menu {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu a:hover,
+.menu a.active {
+  background-color: #2fc2ae;
+  color: black;
+  border-radius: 5px;
+}
+  .contact-section {
+      padding: 40px px;
+      display: flex;
+      justify-content: space-around;
+      gap: 0px;
+    }
+    
+    .contact-form-container {
+      flex: 1 1 500px;
+      padding: 20px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      background-color: #9fc8c5;
+      max-width: 350px;
+    }
+    
+    .contact-form-container form {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      max-width: 350px;
+
+    }
+    
+    .contact-form-container h2 {
+      margin-bottom: 10px;
+    }
+    
+    .contact-form-container label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    .contact-form-container input,
+    .contact-form-container textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #3698a3;
+      border-radius: 4px;
+    }
+    
+    .contact-form-container button {
+      background-color: #326086;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .contact-form-container button:hover {
+      background-color: #37c79e;
+    }
+    
+    .contact-info {
+      flex: 1 1 400px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      text-align: left;
+    }
+
+/*Chatbot*/   
+#chatbot-icon {
+  position: fixed;
+  top: 150px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.5s ease;
+}
+
+#chatbot-icon img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+
+#chatbot-icon:hover img {
+  transform: scale(1.2);
+}
+.label {
+position: absolute;
+bottom: -40px;
+right: 50%;
+transform: translateX(50%);
+background: #A0D9D3;
+color: black;
+padding: 5px 10px;
+border-radius: 8px;
+white-space: nowrap;
+font-size: 14px;
+opacity: 0;
+transition: 0.3s;
+pointer-events: none;
+z-index: 999; /* تأكد فوق الكل */
+font-weight: bold;
+font-style: italic;
+font-size: 1.25rem;
+}
+#chatbot-icon:hover .label {
+opacity: 1;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+  .header {
+      flex-direction: column; /* Stack the header elements vertically */
+      align-items: center;
+  }
+
+  .logo {
+      width: 120px; /* Reduce logo size for tablets */
+      height: auto;
+  }
+
+  .menu {
+      flex-wrap: wrap; /* Allow navigation links to wrap */
+      justify-content: center;
+      gap: 10px;
+  }
+  #chatbot-icon {
+      top: 100px; /* Adjust chatbot position */
+      right: 10px;
+      width: 80px; /* Reduce chatbot size */
+      height: 80px;
+  }
+
+  #chatbot-icon img {
+      width: 80px;
+      height: 80px;
+  }
+
+  h1 {
+      font-size: 60px; /* Adjust font size for tablets */
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+  }
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 100px; /* Further reduce logo size */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 15px;
+  }
+
+  .menu a {
+      font-size: 16px; /* Reduce font size for navigation links */
+      padding: 8px 15px;
+  }
+  #chatbot-icon {
+      top: 80px; /* Adjust chatbot position */
+      right: 10px;
+      width: 70px; /* Reduce chatbot size */
+      height: 70px;
+  }
+
+  #chatbot-icon img {
+      width: 70px;
+      height: 70px;
+  }
+
+  h1 {
+      font-size: 50px; /* Adjust font size for smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul li {
+      margin: 0.5rem 0;
+  }
+
+  .chatbot-button {
+      width: 50px;
+      height: 50px;
+      font-size: 10px;
+  }
+
+  .modal-content {
+      padding: 1rem;
+  }
+
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 80px; /* Further reduce logo size for small screens */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 10px;
+  }
+
+  .menu a {
+      font-size: 14px; /* Reduce font size for navigation links */
+      padding: 8px 10px;
+  }
+
+  #chatbot-icon {
+      top: 60px; /* Adjust chatbot position */
+      right: 5px;
+      width: 60px; /* Reduce chatbot size */
+      height: 60px;
+  }
+
+  #chatbot-icon img {
+      width: 60px;
+      height: 60px;
+  }
+}
+
+/* Responsive Styles */
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-container {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 10px;
+  }
+
+  .logo-container img {
+    max-width: 125px;
+    max-height: 125px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+  #chatbot-icon {
+    top: 120px;
+    right: 15px;
+    width: 90px;
+    height: 90px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-right: 300px;
+
+  }
+
+  .logo-container img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+
+  #chatbot-icon {
+    top: 130px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Basic styling for the hamburger menu */
+.menu-icon {
+  display: none; 
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; 
+  width: 40px;
+  height: 40px;
+}
+
+.menu-icon .bar {
+  display: block;
+  width: 30px;
+  height: 5px;
+  margin: 6px 0;
+  background-color: black;
+  border-radius: 10px; 
+
+}
+
+/* Make the navbar hidden in responsive mode */
+#navbar.hidden {
+  display: none;
+}
+
+/* Responsive layout - when screen width is below 768px */
+@media (max-width: 768px) {
+  .menu-icon {
+      display: block; /* Show hamburger icon in mobile view */
+      z-index: 1001;
+  }
+
+  #navbar {
+    position: absolute;
+    top: 0;
+    right: 5;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    display: none; /* Hidden by default */
+    padding-top: 90px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.25rem;
+  left: 5px;
+  gap: 3px;
+  
+}
+
+  #navbar ul {
+      flex-direction: row;
+      gap: 10px;
+  }
+
+  #navbar.visible {
+      display: flex; /* Show navbar when toggled */
+      z-index: 1000;
+  }
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 12% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#modal-message {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+
+@media (max-width: 480px) {
+  .modal-content {
+    margin: 40% auto;
+    width: 10px;
+    padding: 2px;
+    
+  }
+
+  .close-btn {
+    font-size: 20px;
+  }
+}
+/* Success Modal Styling with Glow */
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  animation: popUp 0.4s ease;
+  box-shadow: 0 0 20px black; /* green glow */
+  border: 2px solid black;
+}
+
+.modal-content h2 {
+  color: black;
+  text-shadow: 0 0 2px black;
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Close Button Glow */
+.close-btn {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  text-shadow: 0 0 5px black;
+}
+
+.close-btn:hover {
+  color: #ff6666;
+  text-shadow: 0 0 10px #ff9999;
+}

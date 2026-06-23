@@ -1,0 +1,595 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-image: url('./img/start.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* General Headings */
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 22px;
+  text-align: center;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b7c9c800;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.25rem;
+
+}
+.logo-container {
+  display: flex;
+  gap: 10px; 
+  width: 175px;
+  height: 175px;
+}
+
+
+.menu {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu a:hover,
+.menu a.active {
+  background-color: #2fc2ae;
+  color: black;
+  border-radius: 5px;
+}
+  
+/* Blink Button */
+.blink-button {
+  display: inline-block;
+  background-color: #ff5722;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  animation: blink 1s infinite;
+}
+
+/* Recipies Box */
+.Recipies-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #A0D9D3;
+  border-radius: 90px;
+  padding: 50px 0px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 10vh;
+  width: 250px;
+  margin: 20px auto 30px;
+  color: white;
+}
+
+.Recipies-text {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+
+/* Recipes Grid */
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.recipe {
+  width: 160px;
+  text-align: center;
+}
+
+.recipe img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.recipe p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Recipe Card */
+.recipe-card {
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+  margin: 10px;
+}
+
+.recipe-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+/* See Recipe Button */
+
+.recipe-card button {
+  margin-top: 20px;
+  bottom: 10px;
+  padding: 10px;
+  background: rgb(33, 180, 160);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.see-recipe-btn:hover {
+  background-color: #A0D9D3;
+  color: black;
+
+}
+
+/* Lunch and Dinner Horizontal Scroll */
+.Lunch-and-Dinner > .recipes {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.Lunch-and-Dinner > .recipes > .recipe-card {
+  flex: 0 0 auto;
+}
+
+/*Chatbot*/   
+#chatbot-icon {
+  position: fixed;
+  top: 150px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.5s ease;
+}
+
+#chatbot-icon img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+
+#chatbot-icon:hover img {
+  transform: scale(1.2);
+}
+.label {
+position: absolute;
+bottom: -40px;
+right: 50%;
+transform: translateX(50%);
+background: #A0D9D3;
+color: black;
+padding: 5px 10px;
+border-radius: 8px;
+white-space: nowrap;
+font-size: 14px;
+opacity: 0;
+transition: 0.3s;
+pointer-events: none;
+z-index: 999; /* تأكد فوق الكل */
+font-weight: bold;
+font-style: italic;
+font-size: 1.25rem;
+}
+#chatbot-icon:hover .label {
+opacity: 1;
+}
+
+
+/* ---------------------- */
+/*   Responsive Design    */
+/* ---------------------- */
+
+/* شاشات صغيرة أقل من 768px (موبايل وتابلت صغير) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 26px;
+  }
+  .Lunch-and-Dinner > .recipes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 10px;
+    overflow-x: unset; /* نلغي السحب بالعرض */
+  }
+  
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .Recipies-box {
+    width: 50%;
+    padding: 30px 0;
+    height: auto;
+    border-radius: 40px;
+  }
+
+  .Recipies-text {
+    font-size: 22px;
+  }
+
+  .recipes {
+    gap: 15px;
+  }
+
+  .recipe, .recipe-card {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .recipe img, .recipe-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .Lunch-and-Dinner > .recipes {
+    gap: 15px;
+  }
+}
+
+/* شاشات أصغر من 480px (موبايل صغير جدا) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .Recipies-text {
+    font-size: 20px;
+  }
+
+  .recipe, .recipe-card {
+    width: 100%;
+  }
+
+  .recipe img, .recipe-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .book-now-btn, .recipe-card button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .blink-button {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+  .header {
+      flex-direction: column; /* Stack the header elements vertically */
+      align-items: center;
+  }
+
+  .logo {
+      width: 120px; /* Reduce logo size for tablets */
+      height: auto;
+  }
+
+  .menu {
+      flex-wrap: wrap; /* Allow navigation links to wrap */
+      justify-content: center;
+      gap: 10px;
+  }
+  #chatbot-icon {
+      top: 100px; /* Adjust chatbot position */
+      right: 10px;
+      width: 80px; /* Reduce chatbot size */
+      height: 80px;
+  }
+
+  #chatbot-icon img {
+      width: 80px;
+      height: 80px;
+  }
+
+  h1 {
+      font-size: 60px; /* Adjust font size for tablets */
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+  }
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 100px; /* Further reduce logo size */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 15px;
+  }
+
+  .menu a {
+      font-size: 16px; /* Reduce font size for navigation links */
+      padding: 8px 15px;
+  }
+  #chatbot-icon {
+      top: 80px; /* Adjust chatbot position */
+      right: 10px;
+      width: 70px; /* Reduce chatbot size */
+      height: 70px;
+  }
+
+  #chatbot-icon img {
+      width: 70px;
+      height: 70px;
+  }
+
+  h1 {
+      font-size: 50px; /* Adjust font size for smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul li {
+      margin: 0.5rem 0;
+  }
+
+  .chatbot-button {
+      width: 50px;
+      height: 50px;
+      font-size: 10px;
+  }
+
+  .modal-content {
+      padding: 1rem;
+  }
+
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 80px; /* Further reduce logo size for small screens */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 10px;
+  }
+
+  .menu a {
+      font-size: 14px; /* Reduce font size for navigation links */
+      padding: 8px 10px;
+  }
+
+  #chatbot-icon {
+      top: 60px; /* Adjust chatbot position */
+      right: 5px;
+      width: 60px; /* Reduce chatbot size */
+      height: 60px;
+  }
+
+  #chatbot-icon img {
+      width: 60px;
+      height: 60px;
+  }
+}
+
+/* Responsive Styles */
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-container {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 10px;
+    margin-right: 300px;
+
+  }
+
+  .logo-container img {
+    max-width: 125px;
+    max-height: 125px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+  #chatbot-icon {
+    top: 120px;
+    right: 15px;
+    width: 90px;
+    height: 90px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .logo-container img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+
+  #chatbot-icon {
+    top: 130px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Basic styling for the hamburger menu */
+.menu-icon {
+  display: none; 
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; 
+  width: 40px;
+  height: 40px;
+}
+
+.menu-icon .bar {
+  display: block;
+  width: 30px;
+  height: 5px;
+  margin: 6px 0;
+  background-color: black;
+  border-radius: 10px; 
+
+}
+
+/* Make the navbar hidden in responsive mode */
+#navbar.hidden {
+  display: none;
+}
+
+/* Responsive layout - when screen width is below 768px */
+@media (max-width: 768px) {
+  .menu-icon {
+      display: block; /* Show hamburger icon in mobile view */
+      z-index: 1001;
+  }
+
+  #navbar {
+    position: absolute;
+    top: 0;
+    right: 5;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    display: none; /* Hidden by default */
+    padding-top: 90px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.25rem;
+  left: 5px;
+  gap: 3px;
+  
+}
+
+  #navbar ul {
+      flex-direction: row;
+      gap: 10px;
+  }
+
+  #navbar.visible {
+      display: flex; /* Show navbar when toggled */
+      z-index: 1000;
+  }
+}

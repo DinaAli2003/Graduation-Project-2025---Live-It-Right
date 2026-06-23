@@ -1,0 +1,541 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url('./img/start.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .top-left-image {
+    position: absolute;
+    top: 180px;
+    left: 40px;
+    width: 250px;
+    height: auto;
+    z-index: 1;
+  }
+
+  .bottom-right-image {
+    position: absolute;
+    bottom: -180px;
+    right: 40px;
+    width: 250px;
+    height: auto;
+    z-index: 1;
+  }
+  .top-right-circle {
+position: absolute;
+top: 180px;
+right: 180px;
+width: 180px;
+height: 180px;
+border-radius: 50%;
+object-fit: cover;
+border: 3px solid white; /* اختياري لإطار أبيض جميل */
+z-index: 1;
+}
+
+
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 2;
+    position: relative;
+  }
+
+  .content {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.221);
+    font-size: 20px;
+    width: 60%;
+    max-width: 700px;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 26px;
+  }
+
+  .recipe-details {
+    line-height: 1.7;
+  }
+/*Chatbot*/   
+#chatbot-icon {
+  position: fixed;
+  top: 150px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.5s ease;
+}
+
+#chatbot-icon img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+
+#chatbot-icon:hover img {
+  transform: scale(1.2);
+}
+.label {
+position: absolute;
+bottom: -40px;
+right: 50%;
+transform: translateX(50%);
+background: #A0D9D3;
+color: black;
+padding: 5px 10px;
+border-radius: 8px;
+white-space: nowrap;
+font-size: 14px;
+opacity: 0;
+transition: 0.3s;
+pointer-events: none;
+z-index: 999; /* تأكد فوق الكل */
+font-weight: bold;
+font-style: italic;
+font-size: 1.25rem;
+}
+#chatbot-icon:hover .label {
+opacity: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b7c9c800;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.25rem;
+
+}
+.logo-container {
+  display: flex;
+  gap: 10px; 
+  width: 175px;
+  height: 175px;
+}
+
+
+.menu {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu a:hover,
+.menu a.active {
+  background-color: #2fc2ae;
+  color: black;
+  border-radius: 5px;
+}
+
+
+
+.image-wrapper {
+  display: none; /* نخبّيها في الديسكتوب */
+}
+
+
+/* Responsive Part */
+@media (max-width: 768px) {
+  .top-left-image,
+  .bottom-right-image,
+  .top-right-circle {
+    width: 150px;
+  }
+
+  .top-left-image {
+    top: 100px;
+    left: 20px;
+  }
+
+  .bottom-right-image {
+    bottom: -100px;
+    right: 20px;
+  }
+
+  .top-right-circle {
+    top: 100px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .content {
+    padding: 20px;
+    font-size: 18px;
+  }
+ 
+}
+
+@media (max-width: 480px) {
+  
+
+  .content {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+  .header {
+      flex-direction: column; /* Stack the header elements vertically */
+      align-items: center;
+  }
+
+  .logo {
+      width: 120px; /* Reduce logo size for tablets */
+      height: auto;
+  }
+
+  .menu {
+      flex-wrap: wrap; /* Allow navigation links to wrap */
+      justify-content: center;
+      gap: 10px;
+  }
+  #chatbot-icon {
+      top: 100px; /* Adjust chatbot position */
+      right: 10px;
+      width: 80px; /* Reduce chatbot size */
+      height: 80px;
+  }
+
+  #chatbot-icon img {
+      width: 80px;
+      height: 80px;
+  }
+
+  h1 {
+      font-size: 60px; /* Adjust font size for tablets */
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+  }
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 100px; /* Further reduce logo size */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 15px;
+  }
+
+  .menu a {
+      font-size: 16px; /* Reduce font size for navigation links */
+      padding: 8px 15px;
+  }
+  #chatbot-icon {
+      top: 80px; /* Adjust chatbot position */
+      right: 10px;
+      width: 70px; /* Reduce chatbot size */
+      height: 70px;
+  }
+
+  #chatbot-icon img {
+      width: 70px;
+      height: 70px;
+  }
+
+  h1 {
+      font-size: 50px; /* Adjust font size for smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul li {
+      margin: 0.5rem 0;
+  }
+
+  .chatbot-button {
+      width: 50px;
+      height: 50px;
+      font-size: 10px;
+  }
+
+  .modal-content {
+      padding: 1rem;
+  }
+
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 80px; /* Further reduce logo size for small screens */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 10px;
+  }
+
+  .menu a {
+      font-size: 14px; /* Reduce font size for navigation links */
+      padding: 8px 10px;
+  }
+
+  #chatbot-icon {
+      top: 50px; /* Adjust chatbot position */
+      right: 5px;
+      width: 60px; /* Reduce chatbot size */
+      height: 60px;
+  }
+
+  #chatbot-icon img {
+      width: 60px;
+      height: 60px;
+  }
+}
+
+/* Responsive Styles */
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-container {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 10px;
+  }
+
+  .logo-container img {
+    max-width: 125px;
+    max-height: 125px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+  #chatbot-icon {
+    top: 100px;
+    right: 15px;
+    width: 90px;
+    height: 90px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-right: 300px;
+
+  }
+
+  .logo-container img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+
+  #chatbot-icon {
+    top: 50px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Basic styling for the hamburger menu */
+.menu-icon {
+  display: none; 
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; 
+  width: 40px;
+  height: 40px;
+}
+
+.menu-icon .bar {
+  display: block;
+  width: 30px;
+  height: 5px;
+  margin: 6px 0;
+  background-color: black;
+  border-radius: 10px; 
+
+}
+
+/* Make the navbar hidden in responsive mode */
+#navbar.hidden {
+  display: none;
+}
+
+/* Responsive layout - when screen width is below 768px */
+@media (max-width: 768px) {
+  .menu-icon {
+      display: block; /* Show hamburger icon in mobile view */
+      z-index: 1001;
+  }
+
+  #navbar {
+    position: absolute;
+    top: 0;
+    right: 5;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    display: none; /* Hidden by default */
+    padding-top: 90px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.25rem;
+  left: 5px;
+  gap: 3px;
+  
+}
+
+  #navbar ul {
+      flex-direction: row;
+      gap: 10px;
+  }
+
+  #navbar.visible {
+      display: flex; /* Show navbar when toggled */
+      z-index: 1000;
+  }
+}
+
+
+/* .image-wrappe {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.top-left-image {
+  position: absolute;
+}
+
+.bottom-right-image {
+  position: absolute;
+}
+
+.top-right-circle {
+  position: absolute;
+  border-radius: 50%;
+} */
+
+/* الوضع الريسبونسيف (عندما تكون الشاشة أقل من 768px مثلاً) */
+@media (max-width: 768px) {
+  .image-wrappe {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .top-left-image,
+  .bottom-right-image,
+  .top-right-circle {
+    position: static;
+    width: 100px; /* أو أي حجم مناسب */
+    border-radius: 0; /* فقط للمدورة نخليها دائرة */
+  }
+
+  .top-right-circle {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+  }
+  .top-left-image{
+    padding-left: 25px;
+  }
+  .top-right-circle{
+    padding-left: -15px;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .top-right-circle {
+    right: auto;
+    /*نلغيright*/transform: translate(-62%, -25%);
+}
+.bottom-right-image{
+    /*نلغيright*/transform: translate(175%, -21%);
+  }
+  .top-left-image{
+    transform: translate(175%, -21%);
+  }
+}

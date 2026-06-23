@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm - Live It Right</title>
+    <link rel="stylesheet" href="alarm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo-container">
+                <img src="../img/logo.png" alt="logo">
+                <p id="subtitle"></p>
+            </div>
+            <div class="menu-icon" id="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+    
+            <nav class="menu" id="navbar" class="hidden">
+                <a href="../Home-page/index.html" id="home" class="">Home</a>
+                <a href="../Health-Awarness/index.html" id="Health Awarness" >Health Awarness</a>
+                <a href="../signup&login-page/login.html" id="login">Login</a>
+                <a href="../contact-us/index.html" id="Contact Us">Contact us</a>
+            </nav>   
+        </div>
+        
+            <div id="chatbot-icon">
+            <a href="../chatbot2/index.html" id="Chatbot-link">
+                <img src="../chatbot2/Icon.png" id="Chatbot-icon" alt="Chatbot Icon">
+            </a>
+            <div class="label">Chatbot</div>
+            </div>
+    </header>
+
+    <section class="medicine-form">
+        <div class="input-container">
+        <label for="medicine-name">Medicine Name</label>
+        <input type="text" id="medicine-name" placeholder="Enter Medicine">
+
+        <label for="medicine-time" class="time-label">Select Time
+            <img src="../img/alarm.png"alt="alarm" class="time-icon">
+        </label>
+        <input type="time" id="medicine-time">
+    </div>
+    <audio id="alarm-sound" src="../alarm-page/audio/alarm sound.mp3" preload="auto"></audio>
+
+        <div class="buttons">
+            <button id="add-btn">
+            <img src="../img/+icon.png"alt="ADD" class="btn-icon-add"><br>
+            <span class="btn-text">Add</span>
+            <div id="success-message">Alarm Added successfully✅ِ</div>
+            </button>
+            <button id="remove-btn">
+                <img src="../img/-icon.png"alt="Remove" class="btn-icon-remove"><br>
+                <span class="btn-text">Remove</span>
+                       
+             
+             <div id="remove-message">Selected Alarms Removed❌</div>
+            </button>
+           
+        </div>
+     <li id="medicine-list"></li>
+     
+     <div id="custom-alert" class="hidden">
+        <div class="alert-box">
+            <span id="alert-message"></span>
+            <button id="alert-ok-btn">OK</button>
+        </div>
+    </div>
+     
+
+</section>
+
+    <script src="alarm.js"></script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const loginLink = document.getElementById("login");
+    const loginBtn = document.getElementById("Login-btn");
+    const welcomeMsg = document.getElementById("welcome-msg");
+
+    function updateUI() {
+        const username = localStorage.getItem("username");
+        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+        if (isLoggedIn) {
+            if (loginLink) loginLink.textContent = "Logout";
+            if (loginBtn) loginBtn.textContent = "Logout";
+            if (welcomeMsg) welcomeMsg.textContent = `Welcome, ${username}!`;
+        } else {
+            if (loginLink) loginLink.textContent = "Login";
+            if (loginBtn) loginBtn.textContent = "Login";
+            if (welcomeMsg) welcomeMsg.textContent = "";
+        }
+    }
+
+    function handleLogout() {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("username");
+        updateUI();
+    }
+
+    if (loginLink) {
+        loginLink.addEventListener("click", function (e) {
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+            if (isLoggedIn) {
+                e.preventDefault();
+                handleLogout();
+            }
+        });
+    }
+
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function (e) {
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+            if (isLoggedIn) {
+                e.preventDefault();
+                handleLogout();
+            }
+        });
+    }
+
+    // أول ما تفتح الصفحة تحدث شكل الزر
+    updateUI();
+
+    // لو في صفحة تانية غيرت حالة الدخول/الخروج
+    window.addEventListener("storage", function (event) {
+        if (event.key === "loggedIn" || event.key === "username") {
+            updateUI();
+        }
+    });
+});
+
+
+const menuIcon = document.getElementById('menu-icon');
+const navbar = document.getElementById('navbar');
+
+menuIcon.addEventListener('click', () => {
+    navbar.classList.toggle('visible'); 
+});
+window.addEventListener('scroll', () => {
+    if (navbar.classList.contains('visible')) {
+        navbar.classList.remove('visible');
+    }
+});
+
+
+    </script> -->
+</body>
+</html>

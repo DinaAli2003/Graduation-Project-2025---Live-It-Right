@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Responsive Background Image -->
+<img src="image/background.jpg" alt="Background" class="background-img">
+    
+    <header>
+        <div class="header">
+            <div class="logo-container">
+                <img src="../img/logo.png" alt="logo">
+                <p id="subtitle"></p>
+            </div>
+            <div class="menu-icon" id="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <nav class="menu" id="navbar" class="hidden">
+            <a href="../Home-page/index.html" id="home">Home</a>
+            <a href="../Health-Awarness/index.html" id="Health-Awarness">Health Awarness</a>
+            <a href="../signup&login-page/login.html" id="login">Login</a>
+            <a href="../contact-us/index.html" id="Contact Us">Contact us</a>
+            </nav>
+        </div>  
+    </header>
+
+        <div class="login-box">
+            <h1>Log In</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                <label for="loginPassword">Password:</label></div>
+                <div class="password-container">
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    <img src="image/passicon.jpg" class="eye-icon" onclick="togglePassword()" alt="Toggle Password Visibility">
+                </div>
+            
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+
+    
+    <!-- Stylish Notification Modal -->
+    <div id="notification-modal" class="notification-modal hidden">
+        <div class="notification-content">
+            <h2 id="notification-title">Notification</h2>
+            <p id="notification-message"></p>
+            <button id="close-notification">OK</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

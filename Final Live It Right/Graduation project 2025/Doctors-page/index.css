@@ -1,0 +1,666 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-image: url('./img/start.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b7c9c800;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.25rem;
+
+}
+.logo-container {
+  display: flex;
+  gap: 10px; 
+  width: 175px;
+  height: 175px;
+}
+
+
+.menu {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu a:hover,
+.menu a.active {
+  background-color: #2fc2ae;
+  color: black;
+  border-radius: 5px;
+}
+    
+.doctor-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A0D9D3;
+    border-radius: 90px;
+    padding: 50px 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 10vh;
+    width: 250px;
+    margin: 20px auto 30px; 
+    color: white;
+}
+
+.doctor-image1 {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.doctor-image1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.doctor-text {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+
+.doctor-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doctor-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+.info-box p {
+    font-size: 17px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+strong {
+    color: #333;
+}
+
+.book-now-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    margin-right: 150px;
+}
+
+.book-now-btn:hover {
+    background-color: #0056b3;
+}
+
+.book-now-btn:active {
+    background-color: #004085;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px 30px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    direction: rtl;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modal-content button {
+    width: 70%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+  
+  .modal-content button:hover {
+    background-color: #A0D9D3;
+    color: black;
+  }
+  
+  .close {
+    color: #aaa;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  } 
+  
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 35px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.doctor--ox {
+    display: flex;
+    flex-direction: column;
+    width: 30%; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border: 1px solid black;
+}
+
+
+.doctor-details {
+    margin-bottom: 20px;
+}
+.social-links {
+    margin-top: 10px;
+}
+
+.social-icon {
+    margin: 0 5px;
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+.book-now-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgb(33, 180, 160);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 60%;
+    font-size: 16px;
+    margin-left: 145px
+}
+
+.book-now-btn:hover {
+    background-color: #A0D9D3;
+    color: black;
+}
+
+
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .button-modal {
+    background-color: rgb(33, 180, 160);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+/*Chatbot*/   
+#chatbot-icon {
+  position: fixed;
+  top: 150px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 998;
+  transition: transform 0.5s ease;
+}
+
+#chatbot-icon img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+
+#chatbot-icon:hover img {
+  transform: scale(1.2);
+}
+.label {
+position: absolute;
+bottom: -40px;
+right: 50%;
+transform: translateX(50%);
+background: #A0D9D3;
+color: black;
+padding: 5px 10px;
+border-radius: 8px;
+white-space: nowrap;
+font-size: 14px;
+opacity: 0;
+transition: 0.3s;
+pointer-events: none;
+z-index: 999; /* تأكد فوق الكل */
+font-weight: bold;
+font-style: italic;
+font-size: 1.25rem;
+}
+#chatbot-icon:hover .label {
+opacity: 1;
+}
+
+
+
+/* Responsive Settings */
+@media (max-width: 992px) {
+  .doctor--ox {
+      flex: 2 2 calc(45% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .doctor--ox {
+      flex: 1 1 50%;
+      width: 100%;
+  }
+  .doctor-text {
+    width: 50%;
+    padding: 30px 0;
+    height: auto;
+    border-radius: 40px;
+  }
+
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+  .header {
+      flex-direction: column; /* Stack the header elements vertically */
+      align-items: center;
+  }
+
+  .logo {
+      width: 120px; /* Reduce logo size for tablets */
+      height: auto;
+  }
+
+  .menu {
+      flex-wrap: wrap; /* Allow navigation links to wrap */
+      justify-content: center;
+      gap: 10px;
+  }
+  #chatbot-icon {
+      top: 100px; /* Adjust chatbot position */
+      right: 10px;
+      width: 80px; /* Reduce chatbot size */
+      height: 80px;
+  }
+
+  #chatbot-icon img {
+      width: 80px;
+      height: 80px;
+  }
+
+  h1 {
+      font-size: 60px; /* Adjust font size for tablets */
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+  }
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 100px; /* Further reduce logo size */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 15px;
+  }
+
+  .menu a {
+      font-size: 16px; /* Reduce font size for navigation links */
+      padding: 8px 15px;
+  }
+  #chatbot-icon {
+      top: 80px; /* Adjust chatbot position */
+      right: 10px;
+      width: 70px; /* Reduce chatbot size */
+      height: 70px;
+  }
+
+  #chatbot-icon img {
+      width: 70px;
+      height: 70px;
+  }
+
+  h1 {
+      font-size: 50px; /* Adjust font size for smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul li {
+      margin: 0.5rem 0;
+  }
+
+  .chatbot-button {
+      width: 50px;
+      height: 50px;
+      font-size: 10px;
+  }
+
+  .modal-content {
+      padding: 1rem;
+  }
+
+  .header {
+      flex-direction: column; /* Stack header elements */
+      align-items: center;
+  }
+
+  .logo {
+      width: 80px; /* Further reduce logo size for small screens */
+      height: auto;
+  }
+
+  .menu {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;
+      gap: 10px;
+  }
+
+  .menu a {
+      font-size: 14px; /* Reduce font size for navigation links */
+      padding: 8px 10px;
+  }
+
+  #chatbot-icon {
+      top: 60px; /* Adjust chatbot position */
+      right: 5px;
+      width: 60px; /* Reduce chatbot size */
+      height: 60px;
+  }
+
+  #chatbot-icon img {
+      width: 60px;
+      height: 60px;
+  }
+}
+
+/* Responsive Styles */
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-container {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 10px;
+    margin-right: 300px;
+
+  }
+
+  .logo-container img {
+    max-width: 125px;
+    max-height: 125px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+  #chatbot-icon {
+    top: 120px;
+    right: 15px;
+    width: 90px;
+    height: 90px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .logo-container img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .menu {
+    text-align: center;
+  }
+
+  #chatbot-icon {
+    top: 130px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+  }
+
+  #chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Basic styling for the hamburger menu */
+.menu-icon {
+  display: none; 
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; 
+  width: 40px;
+  height: 40px;
+}
+
+.menu-icon .bar {
+  display: block;
+  width: 30px;
+  height: 5px;
+  margin: 6px 0;
+  background-color: black;
+  border-radius: 10px; 
+
+}
+
+/* Make the navbar hidden in responsive mode */
+#navbar.hidden {
+  display: none;
+}
+
+/* Responsive layout - when screen width is below 768px */
+@media (max-width: 768px) {
+  .menu-icon {
+      display: block; /* Show hamburger icon in mobile view */
+      z-index: 1001;
+  }
+
+  #navbar {
+    position: absolute;
+    top: 0;
+    right: 5;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    display: none; /* Hidden by default */
+    padding-top: 90px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.25rem;
+  left: 5px;
+  gap: 3px;
+  
+}
+
+  #navbar ul {
+      flex-direction: row;
+      gap: 10px;
+  }
+
+  #navbar.visible {
+      display: flex; /* Show navbar when toggled */
+      z-index: 1000;
+  }
+}
+
+

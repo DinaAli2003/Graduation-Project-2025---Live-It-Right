@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>contact-us</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <body>
+    <header>
+      <div class="header">
+          <div class="logo-container">
+              <img src="../img/logo.png" alt="logo">
+              <p id="subtitle"></p>
+          </div>
+          <div class="menu-icon" id="menu-icon">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+          
+  
+          <nav class="menu" id="navbar" class="hidden">
+              <a href="../Home-page/index.html" id="home">Home</a>
+              <a href="../Health-Awarness/index.html" id="Health Awarness" >Health Awarness</a>
+              <a href="../signup&login-page/login.html" id="login">Login</a>
+              <a href="../contact-us/index.html" id="Contact Us" class="active">Contact us</a>
+          </nav>   
+      </div>
+      
+          <div id="chatbot-icon">
+          <a href="../chatbot2/index.html" id="Chatbot-link">
+              <img src="../chatbot2/Icon.png" id="Chatbot-icon" alt="Chatbot Icon">
+          </a>
+          <div class="label">Chatbot</div>
+          </div>
+  </header>
+    <!-- Contact Section -->
+    <main class="main">
+      <section class="contact-section">
+        <div class="contact-form-container">
+          <form id="contact-form">
+            <h2>Get in Touch</h2>
+  
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+  
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="youremail@example.com" required />
+  
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Feedback, Inquiry" required />
+  
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+  
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+  
+        <!-- Success Modal -->
+        <div id="success-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Message Sent!</h2>
+            <p id="modal-message"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  
+    <script>
+      (function(){
+        emailjs.init("ktMjBnHJYp94wULTq"); // ← ضع الـ Public Key بتاعك هنا
+      })();
+  
+      document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+  
+        const form = this;
+  
+        emailjs.sendForm("service_uxb14pq", "template_pc5s9hf", form)
+          .then(function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+  
+            const msg = `
+              Thank you, <strong>${name}</strong>!<br>
+              Your message has been sent successfully!<br>
+              <strong>Email:</strong> ${email}<br>
+              <strong>Subject:</strong> ${subject}<br>
+              <strong>Message:</strong> ${message}
+            `;
+  
+            document.getElementById('modal-message').innerHTML = msg;
+            document.getElementById('success-modal').style.display = 'block';
+  
+            form.reset();
+          }, function(error) {
+            alert("❌ Failed to send message. Please try again.");
+            console.log(error);
+          });
+      });
+  
+      // مودال الإغلاق
+      document.querySelector('.close-btn').onclick = function () {
+        document.getElementById('success-modal').style.display = 'none';
+      };
+  
+      window.onclick = function (event) {
+        const modal = document.getElementById('success-modal');
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+    const loginLink = document.getElementById("login");
+    const loginBtn = document.getElementById("Login-btn");
+    const welcomeMsg = document.getElementById("welcome-msg");
+
+    function updateUI() {
+        const username = localStorage.getItem("username");
+        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+        if (isLoggedIn) {
+            if (loginLink) loginLink.textContent = "Logout";
+            if (loginBtn) loginBtn.textContent = "Logout";
+            if (welcomeMsg) welcomeMsg.textContent = `Welcome, ${username}!`;
+        } else {
+            if (loginLink) loginLink.textContent = "Login";
+            if (loginBtn) loginBtn.textContent = "Login";
+            if (welcomeMsg) welcomeMsg.textContent = "";
+        }
+    }
+
+    function handleLogout() {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("username");
+        updateUI();
+    }
+
+    if (loginLink) {
+        loginLink.addEventListener("click", function (e) {
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+            if (isLoggedIn) {
+                e.preventDefault();
+                handleLogout();
+            }
+        });
+    }
+
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function (e) {
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+            if (isLoggedIn) {
+                e.preventDefault();
+                handleLogout();
+            }
+        });
+    }
+
+    // أول ما تفتح الصفحة تحدث شكل الزر
+    updateUI();
+
+    // لو في صفحة تانية غيرت حالة الدخول/الخروج
+    window.addEventListener("storage", function (event) {
+        if (event.key === "loggedIn" || event.key === "username") {
+            updateUI();
+        }
+    });
+});
+
+
+const menuIcon = document.getElementById('menu-icon');
+const navbar = document.getElementById('navbar');
+
+menuIcon.addEventListener('click', () => {
+    navbar.classList.toggle('visible'); 
+});
+window.addEventListener('scroll', () => {
+    if (navbar.classList.contains('visible')) {
+        navbar.classList.remove('visible');
+    }
+});
+
+
+    </script>
+  </body>
+  </html>
+     

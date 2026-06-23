@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lactose </title>
+    <style>
+        /* === Global Styles === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("Assets/first aid background.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #f2f9f8;
+            color: #222;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #b7c9c800;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.25rem;
+
+}
+.logo-container {
+    display: flex;
+    gap: 10px; 
+    width: 175px;
+    height: 175px;
+}
+
+
+.menu {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu a:hover,
+.menu a.active {
+    background-color: #2fc2ae;
+    color: black;
+    border-radius: 5px;
+}
+
+
+    h1{
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: #1c6b57;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);    
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    margin-right: 50px;
+    }
+    h1:hover{
+    color:#22cfa4;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    }
+ /* === Section Styles === */
+    section {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    }
+
+
+h4{
+    color: #1c6b57 ;
+    margin-bottom: 10px;
+    font-size: 28px;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed #1c6b57; 
+    }
+    
+
+    p {
+    margin: 15px 0;
+    font-size: 20px; 
+    font-weight: bold;  
+    color: #1c6b57;
+    }
+
+
+
+    ul {
+    
+    margin-left: 20px;
+    padding: 10px; 
+    }
+
+    ul li {
+    margin-bottom: 10px;
+    color:#1c6b57;
+    font-weight: bold; 
+    font-size: 20px;
+    }
+
+
+    hr {
+        width: 100%; 
+        border: none; 
+        border-top: 3px solid #1c6b57; 
+        margin: 20px auto; 
+    }
+
+
+           /* === Interactive Section One === */
+        .overview {
+            display: flex;
+            flex-direction: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .overview video,.overview img {
+            width: 500px;
+            height: 300px;
+            border: 2px solid #7fd4bf;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .overview video:hover, .overview img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /*Chatbot*/   
+#chatbot-icon {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+    transition: transform 0.5s ease;
+}
+
+#chatbot-icon img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+}
+
+#chatbot-icon:hover img {
+    transform: scale(1.2);
+}
+.label {
+position: absolute;
+bottom: -40px;
+right: 50%;
+transform: translateX(50%);
+background: #A0D9D3;
+color: black;
+padding: 5px 10px;
+border-radius: 8px;
+white-space: nowrap;
+font-size: 14px;
+opacity: 0;
+transition: 0.3s;
+pointer-events: none;
+z-index: 999; /* تأكد فوق الكل */
+font-weight: bold;
+font-style: italic;
+font-size: 1.25rem;
+}
+#chatbot-icon:hover .label {
+opacity: 1;
+}
+
+ /* === Media Queries === */
+@media (max-width: 1024px) {
+    .overview video, .overview img {
+        width: 400px;
+        height: 250px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .overview {
+        flex-direction: column;
+    }
+
+    .overview video, .overview img {
+        width: 300px;
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
+@media (max-width: 480px) {
+
+    .overview video, .overview img {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+@media (max-width: 360px) {
+   
+    .overview video, .overview img {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+.header {
+    flex-direction: column; /* Stack the header elements vertically */
+    align-items: center;
+}
+
+.logo {
+    width: 120px; /* Reduce logo size for tablets */
+    height: auto;
+}
+
+.menu {
+    flex-wrap: wrap; /* Allow navigation links to wrap */
+    justify-content: center;
+    gap: 10px;
+}
+#chatbot-icon {
+    top: 100px; /* Adjust chatbot position */
+    right: 10px;
+    width: 80px; /* Reduce chatbot size */
+    height: 80px;
+}
+
+#chatbot-icon img {
+    width: 80px;
+    height: 80px;
+}
+
+h1 {
+    font-size: 60px; /* Adjust font size for tablets */
+}
+
+
+}
+
+@media (max-width: 768px) {
+nav ul {
+    flex-direction: column;
+}
+.header {
+    flex-direction: column; /* Stack header elements */
+    align-items: center;
+}
+
+.logo {
+    width: 100px; /* Further reduce logo size */
+    height: auto;
+}
+
+.menu {
+    flex-direction: column; /* Stack navigation links vertically */
+    align-items: center;
+    gap: 15px;
+}
+
+.menu a {
+    font-size: 16px; /* Reduce font size for navigation links */
+    padding: 8px 15px;
+}
+#chatbot-icon {
+    top: 80px; /* Adjust chatbot position */
+    right: 10px;
+    width: 70px; /* Reduce chatbot size */
+    height: 70px;
+}
+
+#chatbot-icon img {
+    width: 70px;
+    height: 70px;
+}
+
+h1 {
+    font-size: 50px; /* Adjust font size for smaller tablets */
+}
+}
+
+@media (max-width: 480px) {
+nav ul li {
+    margin: 0.5rem 0;
+}
+
+.chatbot-button {
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+}
+
+.modal-content {
+    padding: 1rem;
+}
+
+.header {
+    flex-direction: column; /* Stack header elements */
+    align-items: center;
+}
+
+.logo {
+    width: 80px; /* Further reduce logo size for small screens */
+    height: auto;
+}
+
+.menu {
+    flex-direction: column; /* Stack navigation links vertically */
+    align-items: center;
+    gap: 10px;
+}
+
+.menu a {
+    font-size: 14px; /* Reduce font size for navigation links */
+    padding: 8px 10px;
+}
+
+#chatbot-icon {
+    top: 60px; /* Adjust chatbot position */
+    right: 5px;
+    width: 60px; /* Reduce chatbot size */
+    height: 60px;
+}
+
+#chatbot-icon img {
+    width: 60px;
+    height: 60px;
+}
+}
+
+/* Responsive Styles */
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+.header {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-container {
+  width: 125px;
+  height: 125px;
+  margin-bottom: 10px;
+}
+
+.logo-container img {
+  max-width: 125px;
+  max-height: 125px;
+}
+
+.menu {
+  text-align: center;
+}
+#chatbot-icon {
+  top: 120px;
+  right: 15px;
+  width: 90px;
+  height: 90px;
+}
+
+#chatbot-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+}
+@media (max-width: 480px) {
+body {
+  font-size: 14px;
+}
+
+.header {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+}
+
+.logo-container {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-right: 300px;
+
+}
+
+.logo-container img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.menu {
+  text-align: center;
+}
+
+#chatbot-icon {
+  top: 130px;
+  right: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+#chatbot-icon img {
+  width: 100%;
+  height: 100%;
+}
+}
+
+/* Basic styling for the hamburger menu */
+.menu-icon {
+display: none; 
+cursor: pointer;
+position: absolute;
+top: 20px;
+right: 20px;
+z-index: 1000; 
+width: 40px;
+height: 40px;
+}
+
+.menu-icon .bar {
+display: block;
+width: 30px;
+height: 5px;
+margin: 6px 0;
+background-color: black;
+border-radius: 10px; 
+
+}
+
+/* Make the navbar hidden in responsive mode */
+#navbar.hidden {
+display: none;
+}
+
+/* Responsive layout - when screen width is below 768px */
+@media (max-width: 768px) {
+.menu-icon {
+    display: block; /* Show hamburger icon in mobile view */
+    z-index: 1001;
+}
+
+#navbar {
+  position: absolute;
+  top: 0;
+  right: 5;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  display: none; /* Hidden by default */
+  padding-top: 90px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.25rem;
+left: 5px;
+gap: 3px;
+
+}
+
+#navbar ul {
+    flex-direction: row;
+    gap: 10px;
+}
+
+#navbar.visible {
+    display: flex; /* Show navbar when toggled */
+    z-index: 1000;
+}
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo-container">
+                <img src="../img/logo.png" alt="logo">
+                <p id="subtitle"></p>
+                
+            </div>
+            <div class="menu-icon" id="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="menu" id="navbar" class="hidden">
+                <a href="../Home-page/index.html" id="home" >Home</a>
+                <a href="../Health-Awarness/index.html" id="Health Awarness"  class="active">Health Awarness</a>
+                <a href="../signup&login-page/login.html" id="login">Login</a>
+                <a href="../contact-us/index.html" id="Contact Us" >Contact us</a>
+            </nav>   
+        </div>
+        
+        <div id="chatbot-icon">
+            <a href="../chatbot2/index.html" id="Chatbot-link">
+                <img src="../chatbot2/Icon.png" id="Chatbot-icon" alt="Chatbot Icon">
+            </a>
+            <div class="label">Chatbot</div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section>
+        <h2>Overview:</h2>
+        <hr>
+        <div class="overview">
+            <video width="300" height="200" controls>
+                
+            <source src="Assets/lactose intolerence.mp4" type="video/mp4">
+            
+            </video>
+            <img src="Assets/lactose sensitivity.jpg" alt="Digestive Image 1">
+        </div>
+        <p>
+            <ul>
+                <li>People with lactose intolerance are unable to fully digest the sugar (lactose) in milk</li>
+                <li>As a result, they have diarrhea, gas and bloating after eating or drinking dairy products. </li>
+                <li>The condition, which is also called lactose malabsorption, is usually harmless, but its symptoms can be uncomfortable.</li>
+                <li>Too little of an enzyme produced in your small intestine (lactase) is usually responsible for lactose intolerance.</li>
+                <li>You can have low levels of lactase and still be able to digest milk products. But if your levels are too low you become lactose intolerant, leading to symptoms after you eat or drink dairy.</li>
+            </ul>  
+            
+        </p>
+    </section>
+
+    <!-- Symptoms Section -->
+    <section>
+        <h2>Symptoms:</h2>
+        <hr>
+        <p>
+            The signs and symptoms of lactose intolerance usually begin from 30 minutes to two hours after eating or drinking foods that contain lactose. <br><br><strong>Common signs and symptoms include:</strong><br>
+
+            -Diarrhea<br>
+            -Nausea, and sometimes, vomiting<br>
+            -Stomach cramps<br>
+            -Bloating<br>
+            -Gas.<br>
+        </p>
+    </section>
+
+
+    <!-- When to See a Doctor -->
+    <section>
+        <h2>When to See a Doctor:</h2>
+        <hr>
+        <p>
+            Make an appointment with your doctor if you frequently have symptoms of lactose intolerance after eating dairy foods, particularly if you're worried about getting enough calcium.
+        
+        </p>
+    </section>
+
+<script>
+    
+document.addEventListener("DOMContentLoaded", function () {
+    const loginLink = document.getElementById("login");
+    const loginBtn = document.getElementById("Login-btn");
+    const welcomeMsg = document.getElementById("welcome-msg");
+
+    function updateUI() {
+        const username = localStorage.getItem("username");
+        const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+        if (isLoggedIn) {
+            if (loginLink) loginLink.textContent = "Logout";
+            if (loginBtn) loginBtn.textContent = "Logout";
+            if (welcomeMsg) welcomeMsg.textContent = `Welcome, ${username}!`;
+        } else {
+            if (loginLink) loginLink.textContent = "Login";
+            if (loginBtn) loginBtn.textContent = "Login";
+            if (welcomeMsg) welcomeMsg.textContent = "";
+        }
+    }
+
+    function handleLogout() {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("username");
+        updateUI();
+    }
+
+    if (loginLink) {
+        loginLink.addEventListener("click", function (e) {
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+            if (isLoggedIn) {
+                e.preventDefault();
+                handleLogout();
+            }
+        });
+    }
+
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function (e) {
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+            if (isLoggedIn) {
+                e.preventDefault();
+                handleLogout();
+            }
+        });
+    }
+
+    // أول ما تفتح الصفحة تحدث شكل الزر
+    updateUI();
+
+    // لو في صفحة تانية غيرت حالة الدخول/الخروج
+    window.addEventListener("storage", function (event) {
+        if (event.key === "loggedIn" || event.key === "username") {
+            updateUI();
+        }
+    });
+});
+
+
+const menuIcon = document.getElementById('menu-icon');
+const navbar = document.getElementById('navbar');
+
+menuIcon.addEventListener('click', () => {
+    navbar.classList.toggle('visible'); 
+});
+
+</script>
+</body>
+</html>

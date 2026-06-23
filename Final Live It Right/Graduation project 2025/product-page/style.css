@@ -1,0 +1,835 @@
+/* General Styles */
+body {
+    background: url('images/background.svg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+}
+h1 {
+    font-size: 70px;
+    color:rgb(85, 197, 191) ;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1:hover {
+    color:rgb(127, 240, 255);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    
+}
+
+p{
+    font-size: 20px;
+    color: black;
+    margin: 20px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    line-height: 1.5;
+}
+p:hover{
+    color: rgb(85, 197, 191);
+}
+
+/* Navigation Bar */
+/* nav ul {
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+    text-align: right;
+    padding-right: 200px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+
+} */
+/* 
+nav ul li a.active {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+} */
+
+
+a:hover{
+    color: rgb(85, 197, 191);
+}
+
+.product-category {
+    margin: 40px auto;
+    text-align: center;
+}
+
+.product-category h2 {
+    font-size: 28px;
+    background-color:rgb(85, 197, 191);
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Flip Card Style */
+.flip-card {
+    background-color: transparent;
+    width: 180px;
+    height: 220px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.flip-card-front {
+    background-color: #fff;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+
+}
+
+.flip-card-back {
+    background-color: rgb(85, 197, 191);;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 10px;
+}
+
+
+.login-required {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.473);
+    color: rgb(85, 197, 191);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    border : 2px solid ;
+}
+
+.login-required:hover {
+    background-color: rgba(255, 255, 255, 0.281);
+    color: rgb(85, 197, 191)
+}
+
+
+.logo {
+    width: 150px;
+    height: 100px;
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+} 
+
+
+/* Footer Styles */
+
+
+
+/* 
+
+
+footer {
+    background: transparent;
+    display: flex;
+    justify-content: space-around;
+    padding:30px;
+    margin: 100px;
+    font-size: 16px;
+    color: rgb(79, 184, 178);
+}
+
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+    color: rgb(85, 197, 191);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+
+.footer-container div {
+    flex: 1;
+    min-width: 200px;
+}
+
+footer h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: rgb(85, 197, 191);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px dashed #9e9a9a73;
+
+}
+
+h4:hover {
+    color: #3a8997;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
+.footer-container ul {
+list-style: none;
+padding: 0;
+
+}
+
+.footer-container ul li {
+    margin-bottom: 5px; 
+    font-size: 16px;
+    list-style-type: disc;
+    margin-left: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-shadow: #161515 1px 1px 2px;
+
+}
+
+li:hover {
+    color: #1c6b57;
+    font-weight: bold;
+    text-shadow: #161515 1px 1px 2px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    }
+    
+hr {
+    width: 100%; 
+    border: none; 
+    margin: 20px auto; 
+    }
+
+
+
+.company ul li {
+    
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color:black;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: #161515 1px 1px 2px;
+}
+
+.company ul li:hover {
+    color: #0a9280;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-container p {
+
+font-size: 16px;
+    color:black;
+    font-weight: normal;
+    margin: 0;
+    padding: 0 20px;
+    line-height: 1.5;
+
+}
+
+p:hover, li:hover {
+color: #0a9280;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+transition: color 0.3s ease;
+font-size: 16px;
+
+}
+.icons img {
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 30%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: transparent; 
+}
+
+.icons img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color:white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.login-btn {
+    background-color:rgb(85, 197, 191);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-btn:hover {
+    background-color:rgb(85, 197, 191) ;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.25rem;
+    
+}  
+
+.logo-container {
+    display: flex;
+    gap: 10px; 
+    width: 175px;
+    height: 175px;
+}
+
+
+.menu {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu a:hover,
+.menu a.active {
+    background-color: #2fc2ae;
+    color: black;
+    border-radius: 5px;
+}
+
+/*Chatbot*/   
+#chatbot-icon {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+    transition: transform 0.5s ease;
+}
+
+#chatbot-icon img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+    }
+    
+    #chatbot-icon:hover img {
+    transform: scale(1.2);
+}
+.label {
+position: absolute;
+bottom: -40px;
+right: 50%;
+transform: translateX(50%);
+background: #A0D9D3;
+color: black;
+padding: 5px 10px;
+border-radius: 8px;
+white-space: nowrap;
+font-size: 14px;
+opacity: 0;
+transition: 0.3s;
+pointer-events: none;
+z-index: 999; /* تأكد فوق الكل */
+font-weight: bold;
+font-style: italic;
+font-size: 1.25rem;
+}
+#chatbot-icon:hover .label {
+opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .flip-card {
+        width: 220px;
+        height: 280px;
+    }
+
+    .header {
+        flex-direction: column; /* Stack the header elements vertically */
+        align-items: center;
+    }
+
+    .logo {
+        width: 120px; /* Reduce logo size for tablets */
+        height: auto;
+    }
+
+    .menu {
+        flex-wrap: wrap; /* Allow navigation links to wrap */
+        justify-content: center;
+        gap: 10px;
+    }
+    #chatbot-icon {
+        top: 100px; /* Adjust chatbot position */
+        right: 10px;
+        width: 80px; /* Reduce chatbot size */
+        height: 80px;
+    }
+
+    #chatbot-icon img {
+        width: 80px;
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 60px; /* Adjust font size for tablets */
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flip-card {
+        width: 200px;
+        height: 260px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .header {
+        flex-direction: column; /* Stack header elements */
+        align-items: center;
+    }
+
+    .logo {
+        width: 100px; /* Further reduce logo size */
+        height: auto;
+    }
+
+    .menu {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 16px; /* Reduce font size for navigation links */
+        padding: 8px 15px;
+    }
+    #chatbot-icon {
+        top: 80px; /* Adjust chatbot position */
+        right: 10px;
+        width: 70px; /* Reduce chatbot size */
+        height: 70px;
+    }
+
+    #chatbot-icon img {
+        width: 70px;
+        height: 70px;
+    }
+
+    h1 {
+        font-size: 50px; /* Adjust font size for smaller tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .flip-card {
+        width: 180px;
+        height: 240px;
+    }
+
+    .button-container button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .chatbot-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column; /* Stack header elements */
+        align-items: center;
+    }
+
+    .logo {
+        width: 80px; /* Further reduce logo size for small screens */
+        height: auto;
+    }
+
+    .menu {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu a {
+        font-size: 14px; /* Reduce font size for navigation links */
+        padding: 6px 10px;
+    }
+
+    #chatbot-icon {
+        top: 60px; /* Adjust chatbot position */
+        right: 5px;
+        width: 60px; /* Reduce chatbot size */
+        height: 60px;
+    }
+
+    #chatbot-icon img {
+        width: 60px;
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 40px; /* Adjust font size for mobile phones */
+        margin-top: 10px; /* Reduce top margin for smaller screens */
+    }
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 70%; /* Adjust modal width for tablets */
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+    }
+
+    .modal-content .login-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 90%; /* Adjust modal width for mobile phones */
+        padding: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 18px;
+    }
+
+    .modal-content p {
+        font-size: 12px;
+    }
+
+    .modal-content .login-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+/* Responsive Styles */
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .logo-container {
+      width: 125px;
+      height: 125px;
+      margin-bottom: 10px;
+      margin-right: 300px;
+
+    }
+  
+    .logo-container img {
+      max-width: 125px;
+      max-height: 125px;
+    }
+  
+    .menu {
+      text-align: center;
+    }
+    #chatbot-icon {
+      top: 120px;
+      right: 15px;
+      width: 90px;
+      height: 90px;
+    }
+  
+    #chatbot-icon img {
+      width: 100%;
+      height: 100%;
+    }
+  
+  }
+  @media (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+    }
+  
+    .logo-container {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+  
+    .logo-container img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+  
+    .menu {
+      text-align: center;
+    }
+  
+    #chatbot-icon {
+      top: 130px;
+      right: 10px;
+      width: 70px;
+      height: 70px;
+    }
+  
+    #chatbot-icon img {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .info-box {
+      width: 95%;
+    }
+  }
+  
+  /* Basic styling for the hamburger menu */
+  .menu-icon {
+    display: none; 
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; 
+    width: 40px;
+    height: 40px;
+  }
+  
+  .menu-icon .bar {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin: 6px 0;
+    background-color: black;
+    border-radius: 10px; 
+  
+  }
+  
+  /* Make the navbar hidden in responsive mode */
+  #navbar.hidden {
+    display: none;
+  }
+  
+  /* Responsive layout - when screen width is below 768px */
+  @media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Show hamburger icon in mobile view */
+        z-index: 1001;
+    }
+  
+    #navbar {
+      position: absolute;
+      top: 0;
+      right: 5;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      display: none; /* Hidden by default */
+      padding-top: 90px;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 1.25rem;
+    left: 5px;
+    gap: 3px;
+    
+  }
+  
+    #navbar ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+  
+    #navbar.visible {
+        display: flex; /* Show navbar when toggled */
+        z-index: 1000;
+    }
+  }
+  

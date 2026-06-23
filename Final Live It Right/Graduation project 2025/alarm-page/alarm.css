@@ -1,0 +1,649 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image:url(../img/main-background.jpg);
+    font-family: Arial, sans-serif;
+    background-size: cover; /* لضبط حجم الصورة لتغطية الشاشة */
+     background-position: center; /* توسيط الصورة */
+    background-repeat: no-repeat; /* منع التكرار */
+    background-attachment: fixed; /* تثبيت الخلفية أثناء التمرير */
+    text-align: center;
+    
+}
+
+/* تصميم القسم الرئيسي */
+.buttons{
+    display:flex;
+    align-items: flex-start;
+    width: 300px;
+
+}
+/* صندوق إدخال بيانات الدواء */
+.medicine-form {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    margin: 5px 250px;
+  
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.397) ;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    background-color: rgb(245, 245, 245);
+}
+input[type="text"],
+input[type="time"] {
+    width: 100%; /* يجعل الحقول تمتد بعرض الحاوية */
+    max-width: 280px; /* تحديد الحد الأقصى للعرض */
+    padding: 10px; /* إضافة فراغ داخلي لتوسيع الحقل */
+    border: 2px solid #3a7bd5; /* لون حدود الحقل */
+    border-radius: 8px; /* جعل الزوايا مستديرة */
+    background-color: #f5f7fa; /* لون خلفية خفيف */
+    font-size: 16px; /* تكبير الخط */
+    outline: none; /* إزالة الإطار الأزرق عند النقر */
+    transition: 0.3s ease-in-out; /* تأثير ناعم عند التغيير */
+}
+
+/* عند النقر على الحقل */
+input[type="text"]:focus,
+input[type="time"]:focus {
+    border-color: #ff5e78; /* تغيير لون الإطار عند التفاعل */
+    background-color: #fff; /* جعل الخلفية بيضاء */
+    box-shadow: 0px 0px 8px rgba(255, 94, 120, 0.4); /* تأثير ظل ناعم */
+}
+.time-icon{
+    width: 20px;
+    height: 20px;
+}
+
+
+/*ازرار +   -  */
+
+.btn-icon-add{
+width: 100px;
+height:100px;
+border-radius: 500px;
+}
+#add-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 50px 15px;
+
+}
+#remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 50px 70px;
+}
+
+.btn-icon-remove{
+    width: 100px;
+    height:100px;
+    border-radius: 500px;
+    }
+    .btn-text{
+        color: rgb(13, 88, 123);
+        font-weight: bold;
+        font-size: 22px;
+    
+    }
+
+#medicine-list{
+    background: #2db9305b;
+    align-items: center;
+    display: none;
+    margin: 50px 600px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    width: 250px;
+    box-shadow: 2px 2px 10px rgb(0, 0, 0) ;
+    
+}
+li{
+    list-style-type: none;
+    padding: 7.5px ;
+    margin: 5px;
+}
+#success-message {
+    display: none;
+    background-color: #d4edda; /* لون أخضر فاتح */
+    color: #155724; /* لون أخضر غامق للنص */
+    border: 1px solid #c3e6cb; /* حدود خفيفة */
+    padding: 10px 15px;
+    margin-top: 5px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+}
+#remove-message {
+    display: none;
+    background-color: #f8d7da; /* لون أحمر فاتح */
+    color: #721c24; /* لون أحمر غامق للنص */
+    border: 1px solid #f5c6cb; /* حدود خفيفة */
+    padding: 10px 15px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+}
+.med-checkbox {
+    -webkit-appearance: none;  /* إزالة الشكل الافتراضي للـ checkbox في المتصفحات */
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* عند التحديد (checked) */
+.med-checkbox:checked {
+    background-color: #007bff;  /* تغيير اللون إلى الأزرق عند التحديد */
+    border-color: #007bff;  /* تغيير لون الحدود */
+}
+
+/* إضافة علامة صح عند التحديد */
+.med-checkbox:checked::before {
+    content: "✔";  /* إضافة رمز صح */
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+/* تأثير عند المرور بالماوس */
+.med-checkbox:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* تنسيق النص داخل الـ li */
+li {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* تنسيق النص للـ li عند التحديد */
+li.selected {
+    background-color: #f0f8ff;
+}
+
+/* التنسيق العام للأزرار والتفاعلات */
+button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  }
+  
+  .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 1.25rem;
+    
+  }  .logo-container {
+    display: flex;
+    gap: 10px; 
+    width: 175px;
+    height: 175px;
+  }
+  
+  
+  .menu {
+    flex-grow: 1;
+    text-align: right;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .menu a:hover,
+  .menu a.active {
+    background-color: #2fc2ae;
+    color: black;
+    border-radius: 5px;
+  }
+  /*Chatbot*/   
+  #chatbot-icon {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+    transition: transform 0.5s ease;
+  }
+  
+  #chatbot-icon img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+  }
+  
+  #chatbot-icon:hover img {
+    transform: scale(1.2);
+}
+.label {
+  position: absolute;
+  bottom: -40px;
+  right: 50%;
+  transform: translateX(50%);
+  background: #A0D9D3;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+  z-index: 999; /* تأكد فوق الكل */
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.25rem;
+}
+#chatbot-icon:hover .label {
+  opacity: 1;
+}
+
+
+
+/* تنسيق استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+
+    .buttons {
+        flex-direction: row; /* تخلي الأزرار فوق بعض */
+        align-items: center; 
+        justify-content: center;
+        width: 100%;
+    }
+
+    .medicine-form {
+        margin: 20px auto; /* وسط الفورم بدل الهامش الكبير */
+        width: 90%;
+    }
+
+    #medicine-list {
+        margin: 30px auto;
+        width: 90%;
+    }
+
+    .input-container {
+        max-width: 100%;
+    }
+
+}
+
+/* تنسيق إضافي لشاشات أصغر مثل الموبايل */
+@media (max-width: 480px) {
+
+    .btn-icon-add,
+    .btn-icon-remove {
+        width: 70px;
+        height: 70px;
+    }
+
+    #add-btn,
+    #remove-btn {
+        padding: 20px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+    .header {
+        flex-direction: column; /* Stack the header elements vertically */
+        align-items: center;
+    }
+  
+    .logo {
+        width: 120px; /* Reduce logo size for tablets */
+        height: auto;
+    }
+  
+    .menu {
+        flex-wrap: wrap; /* Allow navigation links to wrap */
+        justify-content: center;
+        gap: 10px;
+    }
+    #chatbot-icon {
+        top: 100px; /* Adjust chatbot position */
+        right: 10px;
+        width: 80px; /* Reduce chatbot size */
+        height: 80px;
+    }
+  
+    #chatbot-icon img {
+        width: 80px;
+        height: 80px;
+    }
+  
+    h1 {
+        font-size: 60px; /* Adjust font size for tablets */
+    }
+  
+  
+  }
+  
+  @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .header {
+        flex-direction: column; /* Stack header elements */
+        align-items: center;
+    }
+  
+    .logo {
+        width: 100px; /* Further reduce logo size */
+        height: auto;
+    }
+  
+    .menu {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center;
+        gap: 15px;
+    }
+  
+    .menu a {
+        font-size: 16px; /* Reduce font size for navigation links */
+        padding: 8px 15px;
+    }
+    #chatbot-icon {
+        top: 80px; /* Adjust chatbot position */
+        right: 10px;
+        width: 70px; /* Reduce chatbot size */
+        height: 70px;
+    }
+  
+    #chatbot-icon img {
+        width: 70px;
+        height: 70px;
+    }
+  
+    h1 {
+        font-size: 50px; /* Adjust font size for smaller tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+  
+    .chatbot-button {
+        width: 50px;
+        height: 50px;
+        font-size: 10px;
+    }
+  
+    .modal-content {
+        padding: 1rem;
+    }
+  
+    .header {
+        flex-direction: column; /* Stack header elements */
+        align-items: center;
+    }
+  
+    .logo {
+        width: 80px; /* Further reduce logo size for small screens */
+        height: auto;
+    }
+  
+    .menu {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center;
+        gap: 10px;
+    }
+  
+    .menu a {
+        font-size: 14px; /* Reduce font size for navigation links */
+        padding: 8px 10px;
+    }
+  
+    #chatbot-icon {
+        top: 60px; /* Adjust chatbot position */
+        right: 5px;
+        width: 60px; /* Reduce chatbot size */
+        height: 60px;
+    }
+  
+    #chatbot-icon img {
+        width: 60px;
+        height: 60px;
+    }
+  }
+  
+  /* Responsive Styles */
+  /* Tablet Screens (768px and below) */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .logo-container {
+      width: 125px;
+      height: 125px;
+      margin-bottom: 10px;
+      margin-right: 300px;
+
+    }
+  
+    .logo-container img {
+      max-width: 125px;
+      max-height: 125px;
+    }
+  
+    .menu {
+      text-align: center;
+    }
+    #chatbot-icon {
+      top: 120px;
+      right: 15px;
+      width: 90px;
+      height: 90px;
+    }
+  
+    #chatbot-icon img {
+      width: 100%;
+      height: 100%;
+    }
+  
+  }
+  @media (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+    }
+  
+    .logo-container {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+  
+    .logo-container img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+  
+    .menu {
+      text-align: center;
+    }
+  
+    #chatbot-icon {
+      top: 130px;
+      right: 10px;
+      width: 70px;
+      height: 70px;
+    }
+  
+    #chatbot-icon img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  /* Basic styling for the hamburger menu */
+  .menu-icon {
+    display: none; 
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; 
+    width: 40px;
+    height: 40px;
+  }
+  
+  .menu-icon .bar {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin: 6px 0;
+    background-color: black;
+    border-radius: 10px; 
+  
+  }
+  
+  /* Make the navbar hidden in responsive mode */
+  #navbar.hidden {
+    display: none;
+  }
+  
+  /* Responsive layout - when screen width is below 768px */
+  @media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Show hamburger icon in mobile view */
+        z-index: 1001;
+    }
+  
+    #navbar {
+      position: absolute;
+      top: 0;
+      right: 5;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      display: none; /* Hidden by default */
+      padding-top: 90px;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 1.25rem;
+    left: 5px;
+    gap: 3px;
+    
+  }
+  
+    #navbar ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+  
+    #navbar.visible {
+        display: flex; /* Show navbar when toggled */
+        z-index: 1000;
+    }
+  }
+  
+
+
+
+  #custom-alert.hidden {
+    display: none;
+}
+
+#custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.alert-box {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+}
+
+.alert-box button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert-box button:hover {
+    background-color: #1976D2;
+}
