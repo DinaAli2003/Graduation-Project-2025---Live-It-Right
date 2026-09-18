@@ -56,7 +56,15 @@ This project was the result of a dedicated and collaborative effort, showcasing 
 *Project Completion Date: June 2025*
 
 ---
+## 🚀 Live Demo
 
+Explore **Live It Right**, a health and nutrition website supporting healthier lifestyles and dietary needs.
+
+🔗 [View Demo](https://drive.google.com/drive/folders/1Sqv3fLDpWJ-2o-Wslgjp5CQGVzarJS1j?usp=sharing)
+
+> Educational project. Not a substitute for professional medical advice.
+
+---
 ## 📬 Contact
 
 For any inquiries, feedback, or to discuss this project further, please contact the repository maintainer:
